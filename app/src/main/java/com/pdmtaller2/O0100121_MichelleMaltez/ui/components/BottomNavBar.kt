@@ -34,6 +34,8 @@ fun BottomNavigationBar(navController: NavHostController) {
                             Screen.Home -> Icons.Default.Home
                             Screen.Search -> Icons.Default.Search
                             Screen.Orders -> Icons.Default.List
+                            else -> return@NavigationBarItem
+
                         },
                         contentDescription = null
                     )
