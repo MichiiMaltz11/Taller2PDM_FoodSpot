@@ -17,13 +17,10 @@ fun OrdersScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        // Título
         Text(text = "Mis órdenes", style = MaterialTheme.typography.headlineMedium)
 
-        // Espacio
         Spacer(modifier = Modifier.height(32.dp))
 
-        // Mensaje si no hay órdenes
         Text(text = "No hay órdenes registradas", style = MaterialTheme.typography.bodyMedium)
     }
 }

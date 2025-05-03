@@ -14,10 +14,8 @@ import com.pdmtaller2.O0100121_MichelleMaltez.ui.components.SearchBar
 fun SearchScreen(onRestaurantClick: (Int) -> Unit) {
     var searchQuery by remember { mutableStateOf("") }
 
-    // Filtramos los restaurantes, los platillos y las categorías
     val filteredRestaurants = remember(searchQuery) {
         Restaurants.filter { restaurant ->
-            // Buscar en el nombre del restaurante, platillos o categorías (sin importar mayúsculas/minúsculas)
             restaurant.name.contains(searchQuery, ignoreCase = true) ||
                     restaurant.menu.any { it.name.contains(searchQuery, ignoreCase = true) } ||
                     restaurant.categories.any { it.contains(searchQuery, ignoreCase = true) }
@@ -31,7 +29,6 @@ fun SearchScreen(onRestaurantClick: (Int) -> Unit) {
                 .padding(padding)
                 .padding(16.dp)
         ) {
-            // Usando tu componente SearchBar
             SearchBar(
                 searchQuery = searchQuery,
                 onSearchQueryChange = { searchQuery = it }
@@ -42,7 +39,6 @@ fun SearchScreen(onRestaurantClick: (Int) -> Unit) {
             if (filteredRestaurants.isEmpty()) {
                 Text("No se encontraron restaurantes o platillos.")
             } else {
-                // Mostrar los restaurantes que coinciden
                 Column {
                     filteredRestaurants.forEach { restaurant ->
                         RestaurantCard(

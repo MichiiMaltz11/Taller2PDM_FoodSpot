@@ -16,18 +16,15 @@ import com.pdmtaller2.O0100121_MichelleMaltez.ui.components.SearchBar
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MenuScreen(restaurantId: Int, onBackPressed: () -> Unit) {
-    // Buscar el restaurante por ID
+
     val restaurant = Restaurants.find { it.id == restaurantId }
 
-    // Estado para la búsqueda
     var searchQuery by remember { mutableStateOf("") }
 
-    // Filtro de platillos
     val filteredDishes = restaurant?.menu?.filter {
         it.name.contains(searchQuery, ignoreCase = true)
     } ?: listOf()
 
-    // Contexto para Toast
     val context = LocalContext.current
 
     restaurant?.let {
@@ -41,22 +38,18 @@ fun MenuScreen(restaurantId: Int, onBackPressed: () -> Unit) {
                     .padding(padding)
                     .padding(16.dp)
             ) {
-                // Descripción del restaurante
                 Text(
                     text = it.description,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier.padding(vertical = 8.dp)
                 )
 
-                // Barra de búsqueda
                 SearchBar(searchQuery = searchQuery, onSearchQueryChange = { searchQuery = it })
 
-                // Lista de platillos
                 LazyColumn(modifier = Modifier.fillMaxWidth()) {
                     items(filteredDishes.size) { index ->
                         val dish = filteredDishes[index]
                         DishItem(dish = dish, onAddToCart = { selectedDish ->
-                            // Aquí es donde mostramos el Toast de forma correcta
                             Toast.makeText(
                                 context,
                                 "${selectedDish.name} agregado al carrito",
