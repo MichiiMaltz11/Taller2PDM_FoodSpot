@@ -33,7 +33,7 @@ fun MenuScreen(restaurantId: Int, onBackPressed: () -> Unit) {
             topBar = {
                 BackAppBar(title = it.name, onBackPressed = onBackPressed)
             }
-        ) { padding ->
+        ) { padding ->  
             Column(
                 modifier = Modifier
                     .padding(padding)
