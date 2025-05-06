@@ -10,9 +10,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.pdmtaller2.O0100121_MichelleMaltez.models.Dish
+import com.pdmtaller2.O0100121_MichelleMaltez.navigation.FoodSpotApp
+
 @Composable
 fun DishItem(dish: Dish, onAddToCart: (Dish) -> Unit) {
     val context = LocalContext.current
@@ -33,8 +36,8 @@ fun DishItem(dish: Dish, onAddToCart: (Dish) -> Unit) {
                 painter = painterResource(id = imageResId),
                 contentDescription = dish.name,
                 modifier = Modifier
-                    .height(100.dp)
-                    .fillMaxWidth()
+                    .height(150.dp)
+                    .fillMaxSize()
                     .clip(RoundedCornerShape(12.dp))
             )
         } else {
@@ -74,4 +77,10 @@ fun DishItem(dish: Dish, onAddToCart: (Dish) -> Unit) {
             Text("Agregar al carrito")
         }
     }
+}
+@Preview
+@Composable
+fun Prev ()
+{
+    FoodSpotApp()
 }

@@ -6,6 +6,8 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.pdmtaller2.O0100121_MichelleMaltez.data.Restaurants
@@ -17,7 +19,7 @@ fun HomeScreen(onRestaurantClick: (Int) -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("FoodSpot", fontSize = 20.sp, fontWeight = FontWeight.Bold) }
+                title = { Text("FoodSpot", fontSize = 20.sp, fontWeight = FontWeight.Bold )}
             )
         }
     ) { padding ->
@@ -43,3 +45,4 @@ fun HomeScreen(onRestaurantClick: (Int) -> Unit) {
         }
     }
 }
+

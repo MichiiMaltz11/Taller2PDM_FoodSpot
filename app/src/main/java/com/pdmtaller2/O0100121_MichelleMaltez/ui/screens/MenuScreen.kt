@@ -7,6 +7,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.pdmtaller2.O0100121_MichelleMaltez.data.Restaurants
 import com.pdmtaller2.O0100121_MichelleMaltez.ui.components.DishItem
@@ -40,7 +41,7 @@ fun MenuScreen(restaurantId: Int, onBackPressed: () -> Unit) {
             ) {
                 Text(
                     text = it.description,
-                    style = MaterialTheme.typography.bodyMedium,
+                    style = MaterialTheme.typography.bodyLarge,
                     modifier = Modifier.padding(vertical = 8.dp)
                 )
 

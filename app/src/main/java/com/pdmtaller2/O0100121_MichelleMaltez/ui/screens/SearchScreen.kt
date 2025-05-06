@@ -8,6 +8,9 @@ import androidx.compose.ui.unit.dp
 import com.pdmtaller2.O0100121_MichelleMaltez.data.Restaurants
 import com.pdmtaller2.O0100121_MichelleMaltez.ui.components.RestaurantCard
 import com.pdmtaller2.O0100121_MichelleMaltez.ui.components.SearchBar
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -22,12 +25,12 @@ fun SearchScreen(onRestaurantClick: (Int) -> Unit) {
         }
     }
 
-    Scaffold(
-    ) { padding ->
+    Scaffold { padding ->
         Column(
             modifier = Modifier
                 .padding(padding)
                 .padding(16.dp)
+                .verticalScroll(rememberScrollState())
         ) {
             SearchBar(
                 searchQuery = searchQuery,
